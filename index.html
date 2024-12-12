@@ -1,84 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Density Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f3f4f6, #e0e0e0);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .calculator {
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-        .calculator h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        .input-group {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .input-group label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Density Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f3f4f6, #e0e0e0);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calculator {
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .calculator h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .input-group label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .calculator {
+        padding: 15px;
+      }
+
+      .calculator h1 {
+        font-size: 20px;
+      }
+
+      .input-group input {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .calculator {
+        padding: 20px;
+        max-width: 350px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="calculator">
-        <h1>Density Calculator</h1>
-        <div class="input-group">
-            <label for="mass">Mass (kg):</label>
-            <input type="number" id="mass" placeholder="Enter mass" oninput="updateDensity()">
-        </div>
-        <div class="input-group">
-            <label for="volume">Volume (m³):</label>
-            <input type="number" id="volume" placeholder="Enter volume" oninput="updateDensity()">
-        </div>
-        <div class="result" id="result"></div>
+  <div class="calculator">
+    <h1>Density Calculator</h1>
+    <div class="input-group">
+      <label for="mass">Mass (kg):</label>
+      <input type="number" id="mass" placeholder="Enter mass" oninput="updateDensity()">
     </div>
+    <div class="input-group">
+      <label for="volume">Volume (m³):</label>
+      <input type="number" id="volume" placeholder="Enter volume" oninput="updateDensity()">
+    </div>
+    <div class="result" id="result"></div>
+  </div>
 
-    <script>
-        function updateDensity() {
-            const mass = parseFloat(document.getElementById('mass').value);
-            const volume = parseFloat(document.getElementById('volume').value);
+  <script>
+    function updateDensity() {
+      const mass = parseFloat(document.getElementById('mass').value);
+      const volume = parseFloat(document.getElementById('volume').value);
 
-            if (!isNaN(mass) && !isNaN(volume) && volume > 0) {
-                const density = mass / volume;
-                document.getElementById('result').textContent = `Density: ${density.toFixed(2)}`;
-            } else {
-                document.getElementById('result').textContent = '';
-            }
-        }
-    </script>
+      if (!isNaN(mass) && !isNaN(volume) && volume > 0) {
+        const density = mass / volume;
+        document.getElementById('result').textContent = `Density: ${density.toFixed(2)}`;
+      } else {
+        document.getElementById('result').textContent = '';
+      }
+    }
+  </script>
 </body>
+
 </html>
